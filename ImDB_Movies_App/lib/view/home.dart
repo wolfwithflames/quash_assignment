@@ -8,9 +8,9 @@ import 'package:learning_mvvm/res/colors.dart';
 import 'package:learning_mvvm/res/components/star_rating_bar.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
 import 'package:learning_mvvm/utils/utils.dart';
-import 'package:learning_mvvm/view%20model/home_view_model.dart';
-import 'package:learning_mvvm/view%20model/user_view_model.dart';
 import 'package:learning_mvvm/view/movie_info.dart';
+import 'package:learning_mvvm/viewModel/home_view_model.dart';
+import 'package:learning_mvvm/viewModel/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../res/components/shimmer_loading_grid_view.dart';
@@ -65,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
   AppBar homeAppBar() {
     return AppBar(
       title: Text("Top 250 imDb Movies"),
-      centerTitle: true,
+      centerTitle: false,
       automaticallyImplyLeading: false,
       backgroundColor: AppColors.transparentColor,
       elevation: 0,
@@ -75,6 +75,12 @@ class _HomeViewState extends State<HomeView> {
             navigateToLogs();
           },
           icon: Icon(Icons.format_line_spacing_rounded),
+        ),
+        IconButton(
+          onPressed: () {
+            navigateToCrashLogs();
+          },
+          icon: Icon(Icons.clear_all_sharp),
         ),
         IconButton(
           onPressed: () {
@@ -226,5 +232,9 @@ class _HomeViewState extends State<HomeView> {
 
   void navigateToLogs() {
     Navigator.pushNamed(context, RoutesName.networkLogs);
+  }
+
+  void navigateToCrashLogs() {
+    Navigator.pushNamed(context, RoutesName.crashLogs);
   }
 }

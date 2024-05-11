@@ -3,5 +3,6 @@ class RoutesName {
   static const String login = "/login";
   static const String home = "/home";
   static const String networkLogs = "/networkLogs";
+  static const String crashLogs = "/crashLogs";
   static const String signup = "/signup";
 }

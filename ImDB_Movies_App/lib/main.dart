@@ -1,12 +1,21 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:learning_mvvm/utils/routes/routes.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
-import 'package:learning_mvvm/view%20model/auth_view_model.dart';
-import 'package:learning_mvvm/view%20model/user_view_model.dart';
+import 'package:learning_mvvm/viewModel/auth_view_model.dart';
+import 'package:learning_mvvm/viewModel/user_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:quash_assignment/quash_assignment.dart';
 
 void main() {
-  runApp(const MVVM());
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await CrashLogger.initLogger();
+    runApp(MVVM());
+  }, (error, stackTrace) {
+    CrashLogger.logError(error, stackTrace);
+  });
 }
 
 class MVVM extends StatelessWidget {

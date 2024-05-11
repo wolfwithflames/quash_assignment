@@ -6,8 +6,9 @@ import 'package:learning_mvvm/res/components/frosted_glass_box.dart';
 import 'package:learning_mvvm/res/components/round_button.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
 import 'package:learning_mvvm/utils/utils.dart';
-import 'package:learning_mvvm/view%20model/auth_view_model.dart';
+import 'package:learning_mvvm/viewModel/auth_view_model.dart';
 import 'package:provider/provider.dart';
+
 import '../res/components/background_image.dart';
 import '../res/components/check_circle_icon.dart';
 import '../res/components/headline.dart';
@@ -22,7 +23,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   void initState() {
-    if(kDebugMode){
+    if (kDebugMode) {
       _emailController.text = "eve.holt@reqres.in";
       _passwordController.text = "cityslicka";
     }
@@ -37,8 +38,6 @@ class _LoginViewState extends State<LoginView> {
 
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
-
-  
 
   Map<String, dynamic> getUserCredentials() {
     return {

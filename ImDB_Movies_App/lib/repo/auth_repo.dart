@@ -1,6 +1,7 @@
 import 'package:learning_mvvm/data/network/base_api_service.dart';
 import 'package:learning_mvvm/data/network/network_api_service.dart';
 import 'package:learning_mvvm/res/app_url.dart';
+import 'package:quash_assignment/crash_logger.dart';
 
 class AuthRepo {
   /* 
@@ -29,13 +30,14 @@ more modular and extensible code. Like:
         _apiService = anotherInheritedApiService();
 */
   Future<dynamic> loginApi(dynamic data) async {
-    // try {
+    try {
       dynamic response =
           await _apiService.getPostApiResponse(AppUrl.login, data);
       return response;
-    // } catch (exception) {
-    //   throw Exception(exception.toString());
-    // }
+    } catch (error, stackTrace) {
+      CrashLogger.logError(error, stackTrace);
+      throw error.toString();
+    }
   }
 
   Future<dynamic> signUpApi(dynamic data) async {
@@ -43,8 +45,9 @@ more modular and extensible code. Like:
       dynamic response =
           await _apiService.getPostApiResponse(AppUrl.signUp, data);
       return response;
-    } catch (exception) {
-      throw Exception(exception.toString());
+    } catch (error, stackTrace) {
+      CrashLogger.logError(error, stackTrace);
+      throw error.toString();
     }
   }
 }
