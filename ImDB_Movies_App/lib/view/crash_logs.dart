@@ -82,10 +82,6 @@ class _CrashLogsState extends State<CrashLogs> {
             dataItem("Model", data[index]['model']),
             dataItem("Device", data[index]['device']),
             dataItem("Os Version", data[index]['version'].toString()),
-
-            // (data[index]['version'] as Map).forEach((key, value) {
-            //   return dataItem("Os Info", data[index]['device']);
-            // }),
             ExpansionTile(
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
               title: Text(

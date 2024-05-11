@@ -98,6 +98,15 @@ class CrashLogger {
     debugPrint('Crash logs cleared');
   }
 
+  /// Retrieves the device information using the `DeviceInfoPlugin` from the `device_info_plus` package.
+  ///
+  /// This method initializes the `DeviceInfoPlugin` and retrieves the device information using the `deviceInfo` property.
+  /// The device information is returned as a `Map` containing various data about the device.
+  ///
+  /// Returns:
+  ///   - A `Map` containing the device information.
+  ///
+  /// Note: Make sure to import the `device_info_plus` package and initialize it before calling this method.
   static Future<Map> getDeviceInfo() async {
     final deviceInfoPlugin = DeviceInfoPlugin();
     final deviceInfo = await deviceInfoPlugin.deviceInfo;
