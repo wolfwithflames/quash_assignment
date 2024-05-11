@@ -3,7 +3,7 @@ import 'package:learning_mvvm/model/user_model.dart';
 import 'package:learning_mvvm/repo/auth_repo.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
 import 'package:learning_mvvm/utils/utils.dart';
-import 'package:learning_mvvm/view%20model/user_view_model.dart';
+import 'package:learning_mvvm/viewModel/user_view_model.dart';
 
 class AuthViewModel with ChangeNotifier {
   AuthRepo _authRepo = AuthRepo();

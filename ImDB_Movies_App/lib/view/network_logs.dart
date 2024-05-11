@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:learning_mvvm/data/response/status.dart';
 import 'package:learning_mvvm/res/components/shimmer_loading_grid_view.dart';
 import 'package:learning_mvvm/utils/utils.dart';
-import 'package:learning_mvvm/view%20model/network_logs_view_model.dart';
+import 'package:learning_mvvm/viewModel/network_logs_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:quash_assignment/dio_logger.dart';
 
@@ -21,7 +21,7 @@ class _NetworkLogsState extends State<NetworkLogs> {
 
   @override
   void initState() {
-    _networkLogsViewModel.fetchMoviesList();
+    _networkLogsViewModel.fetchNetworkLogs();
     super.initState();
   }
 
@@ -61,7 +61,7 @@ class _NetworkLogsState extends State<NetworkLogs> {
 
   Future<void> clearLogs() async {
     await DioLogger().clearLogs();
-    _networkLogsViewModel.fetchMoviesList();
+    _networkLogsViewModel.fetchNetworkLogs();
   }
 
   Widget logDataView(List data) {
@@ -98,7 +98,7 @@ class _NetworkLogsState extends State<NetworkLogs> {
         ),
         TextButton(
           onPressed: () async {
-            await Clipboard.setData(ClipboardData(text: "your text"));
+            await Clipboard.setData(ClipboardData(text: data));
             Utils.toastMessage("Copied");
           },
           child: Text("Copy"),

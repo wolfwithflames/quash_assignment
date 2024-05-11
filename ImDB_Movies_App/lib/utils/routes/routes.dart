@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
+import 'package:learning_mvvm/view/crash_logs.dart';
 import 'package:learning_mvvm/view/home.dart';
 import 'package:learning_mvvm/view/login.dart';
 import 'package:learning_mvvm/view/network_logs.dart';
@@ -30,6 +31,10 @@ class Routes {
       case RoutesName.networkLogs:
         return MaterialPageRoute(
           builder: (context) => NetworkLogs(),
+        );
+      case RoutesName.crashLogs:
+        return MaterialPageRoute(
+          builder: (context) => CrashLogs(),
         );
       default:
         return MaterialPageRoute(

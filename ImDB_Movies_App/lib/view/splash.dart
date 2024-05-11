@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:learning_mvvm/res/colors.dart';
-import 'package:learning_mvvm/view%20model/services/splash_services.dart';
+import 'package:learning_mvvm/viewModel/services/splash_services.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

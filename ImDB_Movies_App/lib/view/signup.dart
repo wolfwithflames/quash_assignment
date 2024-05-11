@@ -6,7 +6,7 @@ import 'package:learning_mvvm/res/components/frosted_glass_box.dart';
 import 'package:learning_mvvm/res/components/round_button.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
 import 'package:learning_mvvm/utils/utils.dart';
-import 'package:learning_mvvm/view%20model/auth_view_model.dart';
+import 'package:learning_mvvm/viewModel/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../res/components/check_circle_icon.dart';
