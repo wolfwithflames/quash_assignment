@@ -74,6 +74,7 @@ class _NetworkLogsState extends State<NetworkLogs> {
       itemCount: data.length,
       itemBuilder: (context, index) {
         return ExpansionTile(
+          expandedCrossAxisAlignment: CrossAxisAlignment.start,
           title: Text(
             DateTime.fromMillisecondsSinceEpoch(data[index]['createdAt'])
                 .toString(),
@@ -89,6 +90,7 @@ class _NetworkLogsState extends State<NetworkLogs> {
 
   ExpansionTile childData(String title, dynamic data, int index) {
     return ExpansionTile(
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
       title: Text(
         title,
       ),

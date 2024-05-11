@@ -73,20 +73,52 @@ class _CrashLogsState extends State<CrashLogs> {
       itemBuilder: (context, index) {
         return ExpansionTile(
           title: Text(
-            "${index + 1}",
+            DateTime.fromMillisecondsSinceEpoch(data[index]['createdAt'])
+                .toString(),
           ),
+          expandedCrossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(data[index]),
-            TextButton(
-              onPressed: () async {
-                await Clipboard.setData(ClipboardData(text: data[index]));
-                Utils.toastMessage("Copied");
-              },
-              child: Text("Copy"),
+            dataItem("Product", data[index]['product']),
+            dataItem("Model", data[index]['model']),
+            dataItem("Device", data[index]['device']),
+            dataItem("Os Version", data[index]['version'].toString()),
+
+            // (data[index]['version'] as Map).forEach((key, value) {
+            //   return dataItem("Os Info", data[index]['device']);
+            // }),
+            ExpansionTile(
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
+              title: Text(
+                "Crash log data",
+              ),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    data[index]['data'],
+                  ),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    await Clipboard.setData(ClipboardData(text: data[index]));
+                    Utils.toastMessage("Copied");
+                  },
+                  child: Text("Copy"),
+                ),
+              ],
             ),
           ],
         );
       },
+    );
+  }
+
+  Widget dataItem(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        "$title : $value",
+      ),
     );
   }
 }

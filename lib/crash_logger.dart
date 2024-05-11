@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -41,7 +42,7 @@ class CrashLogger {
     Hive.init(appDocumentDir.path);
 
     // Open the Hive box for crash logs
-    await Hive.openBox<String>('crashLogs');
+    await Hive.openBox<Map>('crashLogs');
   }
 
   /// Logs an error with the corresponding stack trace to the Hive box for crash logs.
@@ -55,10 +56,15 @@ class CrashLogger {
   ///
   static Future<void> logError(dynamic error, StackTrace stackTrace) async {
     final log = 'Error: $error\nStack Trace: $stackTrace';
+    final Map logData = {
+      "data": log,
+      'createdAt': DateTime.now().millisecondsSinceEpoch,
+    };
+    logData.addAll(await getDeviceInfo());
     // Open the Hive box for crash logs
-    final box = await Hive.openBox<String>('crashLogs');
+    final box = await Hive.openBox<Map>('crashLogs');
     // Save the log to Hive
-    box.add(log);
+    box.add(logData);
     debugPrint('Crash logged: $log');
   }
 
@@ -72,8 +78,8 @@ class CrashLogger {
   ///   - A list of strings representing the crash logs.
   ///
   static Future getLogs() async {
-    final box = await Hive.openBox<String>('crashLogs');
-    final List<String> logs = box.values.toList();
+    final box = await Hive.openBox<Map>('crashLogs');
+    final List<Map> logs = box.values.toList();
     // Display or process the crash logs as needed
     return logs;
   }
@@ -90,5 +96,12 @@ class CrashLogger {
     final box = await Hive.openBox<String>('crashLogs');
     await box.clear();
     debugPrint('Crash logs cleared');
+  }
+
+  static Future<Map> getDeviceInfo() async {
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    final deviceInfo = await deviceInfoPlugin.deviceInfo;
+
+    return deviceInfo.data;
   }
 }
