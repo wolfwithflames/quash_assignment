@@ -7,4 +7,12 @@ class QuashAssignment {
   Future<String?> getPlatformVersion() {
     return QuashAssignmentPlatform.instance.getPlatformVersion();
   }
+
+  Future<void> startRecording() {
+    return QuashAssignmentPlatform.instance.startRecording();
+  }
+
+  Future<void> handleScreenshot(Function(dynamic) callback) {
+    return QuashAssignmentPlatform.instance.handleScreenshot(callback);
+  }
 }

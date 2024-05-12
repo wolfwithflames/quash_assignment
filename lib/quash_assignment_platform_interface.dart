@@ -26,4 +26,12 @@ abstract class QuashAssignmentPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<void> startRecording() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<void> handleScreenshot(Function(dynamic) callback) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }

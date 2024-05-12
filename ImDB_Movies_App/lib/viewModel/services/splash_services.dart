@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learning_mvvm/model/user_model.dart';
 import 'package:learning_mvvm/utils/routes/routes_name.dart';
+
 import '../user_view_model.dart';
 
 class SplashServices {
-  // Concise way to define a getter method named "getUserData()" by calling the 
+  // Concise way to define a getter method named "getUserData()" by calling the
   // "getUser()" method from an instance of the "UserViewModel" class
   Future<UserModel> getUserData() async => await UserViewModel().getUser();
 

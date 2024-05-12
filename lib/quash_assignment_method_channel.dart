@@ -11,7 +11,24 @@ class MethodChannelQuashAssignment extends QuashAssignmentPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    // final version =
+    //     await methodChannel.invokeMethod<String>('getPlatformVersion');
+    return "version";
+  }
+
+  @override
+  Future<String?> startRecording() async {
+    final version =
+        await methodChannel.invokeMethod<String>('startScreenshotCapture');
     return version;
+  }
+
+  @override
+  Future<void> handleScreenshot(Function(dynamic) callback) async {
+    methodChannel.setMethodCallHandler((MethodCall call) async {
+      if (call.method == 'onScreenshot') {
+        callback(call.arguments);
+      }
+    });
   }
 }

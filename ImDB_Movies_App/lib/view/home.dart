@@ -12,6 +12,7 @@ import 'package:learning_mvvm/view/movie_info.dart';
 import 'package:learning_mvvm/viewModel/home_view_model.dart';
 import 'package:learning_mvvm/viewModel/user_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:quash_assignment/quash_assignment.dart';
 
 import '../res/components/shimmer_loading_grid_view.dart';
 
@@ -31,6 +32,12 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
+    QuashAssignment qa = QuashAssignment();
+    qa.startRecording();
+    qa.handleScreenshot((p0) {
+      log(p0);
+    });
+
     _homeViewModel.fetchMoviesList();
   }
 
