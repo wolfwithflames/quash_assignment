@@ -63,11 +63,13 @@ return ScreenshotWidget(
 ```
 
 ## Screenshots
+<p float="left">
 <img src="/screenshots/Screenshot_1715542769.png" width="200">
 <img src="/screenshots/Screenshot_1715542773.png" width="200">
 <img src="/screenshots/Screenshot_1715542896.png" width="200">
 <img src="/screenshots/Screenshot_1715542902.png" width="200">
 <img src="/screenshots/Screenshot_1715542909.png" width="200">
+</p>
 
 ## TODO
 - Generate models for logs response.
