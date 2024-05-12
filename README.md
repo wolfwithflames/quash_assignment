@@ -63,11 +63,11 @@ return ScreenshotWidget(
 ```
 
 ## Screenshots
-![image](/screenshots/Screenshot_1715542769.png?raw=true "Title")
-![image](/screenshots/Screenshot_1715542773.png?raw=true "Title")
-![image](/screenshots/Screenshot_1715542896.png?raw=true "Title")
-![image](/screenshots/Screenshot_1715542902.png?raw=true "Title")
-![image](/screenshots/Screenshot_1715542909.png?raw=true "Title")
+![image](/screenshots/Screenshot_1715542769.png?raw=true =250x)
+![image](/screenshots/Screenshot_1715542773.png?raw=true =250x)
+![image](/screenshots/Screenshot_1715542896.png?raw=true =250x)
+![image](/screenshots/Screenshot_1715542902.png?raw=true =250x)
+![image](/screenshots/Screenshot_1715542909.png?raw=true =250x)
 
 ## TODO
 - Generate models for logs response.
