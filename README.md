@@ -1,15 +1,68 @@
 # quash_assignment
 
-A new Flutter project.
+There are saveral usage for this plugin as mentioned below.
 
-## Getting Started
+## Network Monitor
+- Network API calls monitoring and logs data.
+- Fetch data and display for your records.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Crash Monitor
+- App crash logging.
+- Fetch logged and can be displayed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots every 100 ms
+- Capturing screenshot without any permissions
+
+## Getting Started for Network Monitoring
+
+#### To add API calling monitor add interceptor to your dio instance.
+```
+final dio = Dio();
+dio.interceptors.add(DioLogger());
+```
+
+#### To Get all API calls log you can fetch data calling below mentioned API.
+```
+final logs = await DioLogger().getAllLogs();
+```
+
+## Getting Started for Crash Logs
+
+#### Start logging crash
+```
+void main() {
+  runZonedGuarded(() {
+    runApp(MyApp());
+  }, (error, stackTrace) {
+    CrashLogger.logError(error, stackTrace);
+  });
+}
+```
+
+#### Add crashloggin to all of you try catch part
+```
+try {
+  // Code that might throw an error
+} catch (error, stackTrace) {
+  CrashLogger.logError(error, stackTrace);
+  // Handle the error gracefully
+}
+
+```
+
+#### To Get all crash logs you can fetch data calling below mentioned API.
+```
+final logs = await DioLogger().getAllLogs();
+```
+
+#### To start capturing screenshots bind your MaterialApp with ScreenshotWidget
+```
+return ScreenshotWidget(
+  child: YourMaterialApp()
+);
+```
+
+## TODO
+- Generate models for logs response.
+- Screenshots every 100ms is still in development. (Issue in release mode) [Pull Request FYI](https://github.com/wolfwithflames/quash_assignment/pull/2)
 
