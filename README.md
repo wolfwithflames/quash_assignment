@@ -10,6 +10,8 @@ There are saveral usage for this plugin as mentioned below.
 - App crash logging.
 - Fetch logged and can be displayed.
 
+## Screenshots every 100 ms
+- Capturing screenshot without any permissions
 
 ## Getting Started for Network Monitoring
 
@@ -53,6 +55,14 @@ try {
 final logs = await DioLogger().getAllLogs();
 ```
 
+#### To start capturing screenshots bind your MaterialApp with ScreenshotWidget
+```
+return ScreenshotWidget(
+  child: YourMaterialApp()
+);
+```
+
 ## TODO
 - Generate models for logs response.
+- Screenshots every 100ms is still in development. (Issue in release mode) [Pull Request FYI](https://github.com/wolfwithflames/quash_assignment/pull/2)
 
