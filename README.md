@@ -62,6 +62,14 @@ return ScreenshotWidget(
 );
 ```
 
+## Screenshots
+<p float="left">
+<img src="/screenshots/Screenshot_1715542773.png" width="200">
+<img src="/screenshots/Screenshot_1715542896.png" width="200">
+<img src="/screenshots/Screenshot_1715542902.png" width="200">
+<img src="/screenshots/Screenshot_1715542909.png" width="200">
+</p>
+
 ## TODO
 - Generate models for logs response.
 - Screenshots every 100ms is still in development. (Issue in release mode) [Pull Request FYI](https://github.com/wolfwithflames/quash_assignment/pull/2)
