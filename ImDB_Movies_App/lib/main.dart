@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:learning_mvvm/utils/routes/routes.dart';
@@ -7,10 +8,13 @@ import 'package:learning_mvvm/viewModel/auth_view_model.dart';
 import 'package:learning_mvvm/viewModel/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:quash_assignment/quash_assignment.dart';
+import 'package:quash_assignment/screenshot_widget.dart';
 
-void main() {
+Future<void> main() async {
+  await WidgetsFlutterBinding.ensureInitialized();
+  DartPluginRegistrant.ensureInitialized();
+
   runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
     await CrashLogger.initLogger();
     runApp(MVVM());
   }, (error, stackTrace) {
@@ -30,14 +34,16 @@ class MVVM extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => UserViewModel(),
-        )
+        ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Movies App (MVVM Architecture)',
-        theme: ThemeData.dark(),
-        initialRoute: RoutesName.splash,
-        onGenerateRoute: Routes.generateRoute,
+      child: ScreenshotWidget(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Movies App (MVVM Architecture)',
+          theme: ThemeData.dark(),
+          initialRoute: RoutesName.splash,
+          onGenerateRoute: Routes.generateRoute,
+        ),
       ),
     );
   }
